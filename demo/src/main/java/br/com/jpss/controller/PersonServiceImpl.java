@@ -44,8 +44,8 @@ public class PersonServiceImpl implements PersonService{
 	}
 
 	@Override
-	public Response list() {
-		List<Person> people = this.personRepository.findAll();
+	public Response list(String name) {
+		List<Person> people = this.personRepository.findByFiltro(name);
 		return Response.ok(people).build();
 	}
 

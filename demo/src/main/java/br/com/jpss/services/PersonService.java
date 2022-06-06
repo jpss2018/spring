@@ -7,6 +7,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -26,7 +27,7 @@ public interface PersonService {
 	public Response find(@PathParam("id") Long id);
 	
 	@GET	
-	public Response list();
+	public Response list(@QueryParam("name") String name);
 	
 	@DELETE
 	@Path("/{id}")
