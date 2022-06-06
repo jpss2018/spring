@@ -1,0 +1,17 @@
+package br.com.jpss.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.jpss.model.Person;
+
+
+public interface PersonRepository  extends JpaRepository<Person, Long>{
+	
+//		@PersistenceContext
+//		private EntityManager manager;
+//	    
+//	    public void create(Person person) {
+//	    	System.out.println("CREATE...");
+//	    	this.manager.persist(person);
+//	    }
+}

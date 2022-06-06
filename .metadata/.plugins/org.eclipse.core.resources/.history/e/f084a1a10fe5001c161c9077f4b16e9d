@@ -1,0 +1,14 @@
+package br.com.jpss;
+
+import org.glassfish.jersey.server.ResourceConfig;
+
+import br.com.jpss.model.Person;
+import br.com.jpss.services.PersonService;
+
+public class JerseyConfig extends ResourceConfig{
+	
+	public JerseyConfig() {
+		register(PersonService.class);
+	}
+
+}

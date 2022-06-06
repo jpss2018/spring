@@ -1,0 +1,43 @@
+services:
+  db-mongo:
+    # Container MongoDB
+    image: mongo
+    container_name: mongo
+    volumes:
+      - mongo_data:/var/lib/mongo
+    restart: always
+    ports:
+     - "27017:27017"
+    env_file: 
+     - ./config/mongo.env  
+    networks:
+     - backend   
+
+  db-postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+     - "5432:5432"
+    env_file: 
+     - ./config/postgres.env  
+    networks:
+     - backend 
+    
+  # wildfly:
+  #  depends_on: 
+  #   - db
+  #  image: wildfly
+  #  ports: 
+  #   - "8080:8080"
+  #  restart: always
+  #  env_file: 
+  #   - ./config/wildfly.env
+  #  networks:
+  #   - backend
+
+volumes:
+ mongo_data: {}
+networks:
+ backend:
+  driver: bridge

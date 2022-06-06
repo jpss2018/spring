@@ -1,0 +1,33 @@
+package br.com.jpss.services;
+
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+
+@Path("people")
+@Produces(MediaType.APPLICATION_JSON)
+public interface PersonService {
+	
+	@POST
+	public Response create(String body); 
+	
+//	@Autowired
+//	private PersonRepository personRepository;
+//	private final Gson gson = new Gson();
+//	
+//	@GET
+//	public Response get() {
+//		return Response.ok("HELLO").build();
+//	}
+//	
+//	@POST
+//	public Response create(String body) {
+//		Person person = this.gson.fromJson(body, Person.class);
+//		this.personRepository.save(person);
+//		return Response.ok().build();
+//	}
+// 
+}

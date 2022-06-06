@@ -1,0 +1,13 @@
+package br.com.jpss.repository;
+
+import org.springframework.stereotype.Repository;
+
+import br.com.jpss.model.Person;
+
+@Repository
+public class PersonRepository {
+	    
+	    public void create(Person person) {
+	    	
+	    }
+}

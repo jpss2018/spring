@@ -1,0 +1,50 @@
+package br.com.jpss.controller;
+
+import javax.ws.rs.core.Response;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.google.gson.Gson;
+
+import br.com.jpss.model.Person;
+import br.com.jpss.repository.PersonRepository;
+import br.com.jpss.services.PersonService;
+
+@Controller
+public class PersonServiceImpl implements PersonService{
+	
+	@Autowired
+	private PersonRepository personRepository;
+	
+	private final Gson gson = new Gson();
+
+	@Override
+	public Response create(String body) {
+		
+		Person person = this.gson.fromJson(body, Person.class);
+		this.personRepository.saveAndFlush(person);		
+		
+		return Response.ok().build();
+	}
+
+	@Override
+	public Response update(Integer id, String body) {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
+	@Override
+	public Response find(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

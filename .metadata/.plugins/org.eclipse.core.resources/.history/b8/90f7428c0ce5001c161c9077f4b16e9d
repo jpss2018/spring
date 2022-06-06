@@ -1,0 +1,5 @@
+package br.com.jpss.services;
+
+public class PersonServiceImpl {
+
+}

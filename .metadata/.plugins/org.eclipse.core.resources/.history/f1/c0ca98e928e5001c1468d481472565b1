@@ -1,0 +1,15 @@
+package br.com.jpss.controller;
+
+import javax.ws.rs.core.Response;
+
+import br.com.jpss.services.PersonService;
+
+public class PersonServiceImpl implements PersonService{
+
+	@Override
+	public Response create(String body) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

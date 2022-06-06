@@ -1,0 +1,38 @@
+package br.com.jpss.services;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.google.gson.Gson;
+
+import br.com.jpss.model.Person;
+import br.com.jpss.repository.PersonRepository;
+
+
+@Path("people")
+@Produces(MediaType.APPLICATION_JSON)
+public class PersonService {
+	
+	@Autowired
+	private PersonRepository personRepository;
+	private final Gson gson = new Gson();
+	
+	@GET
+	public Response get() {
+		return Response.ok("HELLO").build();
+	}
+	
+	@POST
+	public Response create(String body) {
+		Person person = this.gson.fromJson(body, Person.class);
+		this.personRepository.create(person);
+		return Response.ok().build();
+	}
+ 
+}

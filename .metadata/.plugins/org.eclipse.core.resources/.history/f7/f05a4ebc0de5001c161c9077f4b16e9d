@@ -1,0 +1,22 @@
+package br.com.jpss.services;
+
+import java.util.Collection;
+
+import javax.ws.rs.core.Response;
+
+import br.com.jpss.model.Person;
+import br.com.jpss.repository.PersonRepository;
+
+public class PersonServiceImpl implements PersonService {
+    
+    private final PersonRepository repository;
+     
+    public PersonServiceImpl(PersonRepository repository) {
+        this.repository = repository;
+    }
+ 
+    @Override
+    public Collection<Person> getAllStudents() {
+        return repository.findAll();
+    }
+}
